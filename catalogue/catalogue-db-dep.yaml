@@ -3,6 +3,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: catalogue-db
+  namespace: test
   labels:
     name: catalogue-db
   namespace: sock-shop

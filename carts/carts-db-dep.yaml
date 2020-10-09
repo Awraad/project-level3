@@ -3,6 +3,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: carts-db
+  namespace: test
   labels:
     name: carts-db
   namespace: sock-shop

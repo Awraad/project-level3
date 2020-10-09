@@ -3,9 +3,10 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: shipping
+  namespace: test
   labels:
     name: shipping
-  namespace: sock-shop
+    namespace: test
 spec:
   replicas: 1
   template:

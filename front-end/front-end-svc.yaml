@@ -3,6 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: front-end
+  namespace: test
   labels:
     name: front-end
   namespace: sock-shop
