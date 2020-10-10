@@ -1,0 +1,6 @@
+piVersion: v1
+kind: ServiceAccount
+metadata:
+  name: awraad-docker
+secrets:
+  - name: awraad-docker

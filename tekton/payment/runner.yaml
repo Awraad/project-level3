@@ -1,0 +1,16 @@
+piVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: dockr-runner
+spec:
+  serviceAccountName: awraad-docker
+  taskRef:
+    name: dockr
+  params:
+  - name: IMAGE
+    value: "awraad/payment"
+  resources:
+    inputs:
+    - name: payment
+      resourceRef:
+        name: payment
