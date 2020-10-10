@@ -14,4 +14,4 @@ spec:
     inputs:
     - name: e2e-tests
       resourceRef:
-        name: e2e-tests
+        name: Awraad

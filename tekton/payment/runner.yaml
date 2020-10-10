@@ -14,4 +14,4 @@ spec:
     inputs:
     - name: payment
       resourceRef:
-        name: payment
+        name: Awraad
