@@ -6,17 +6,17 @@ metadata:
 spec:
   resources:
     inputs:
-    - name: Project-level3
+    - name: project-level3
       type: git
   params:
   - name: IMAGE
     description: Name (reference) of the image to build.
   - name: DOCKERFILE
     description: Path to the Dockerfile to build.
-    default: /workspace/Project-level3/payment/test/Dockerfile
+    default: /workspace/project-level3/payment/test/Dockerfile
   - name: CONTEXT
     description: The build context used by Kaniko.
-    default: /workspace//Project-level3/payment/test
+    default: /workspace//project-level3/payment/test
   - name: EXTRA_ARGS
     default: ""
   - name: BUILDER_IMAGE
@@ -27,7 +27,7 @@ spec:
     description: Digest of the image just built.
   steps:
   - name: build-and-push
-    workingDir: /workspace/Project-level3/payment/test
+    workingDir: /workspace/project-level3/payment/test
     image: $(params.BUILDER_IMAGE)
     # specifying DOCKER_CONFIG is required to allow kaniko to detect docker credential
     # https://github.com/tektoncd/pipeline/pull/706
@@ -44,7 +44,7 @@ spec:
     securityContext:
       runAsUser: 0
   - name: write-digest
-    workingDir: /workspace/Project-level3/payment/test
+    workingDir: /workspace/project-level3/payment/test
     image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter:v0.11.1
     # output of imagedigestexport [{"key":"digest","value":"sha256:eed29..660","resourceRef":{"name":"myrepo/myimage"}}]
     command: ["/ko-app/imagedigestexporter"]
@@ -52,7 +52,7 @@ spec:
     - -images=[{"name":"$(params.IMAGE)","type":"image","url":"$(params.IMAGE)","digest":"","OutputImageDir":"$(workspaces.source.path)/image-digest"}]
     - -terminationMessagePath=image-digested
   - name: digest-to-results
-    workingDir: /workspace/Project-level3/payment/test
+    workingDir: /workspace/project-level3/payment/test
     image: stedolan/jq
     script: |
       cat image-digested | jq -j '.[0].value' | tee /tekton/results/IMAGE-DIGEST

@@ -12,6 +12,6 @@ spec:
     value: "awraad/e2e-tests"
   resources:
     inputs:
-    - name: e2e-tests
+    - name: project-level3
       resourceRef:
-        name: Awraad
+        name: project-level3

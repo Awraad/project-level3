@@ -12,6 +12,6 @@ spec:
     value: "awraad/payment"
   resources:
     inputs:
-    - name: Project-level3
+    - name: project-level3
       resourceRef:
-        name: Project-level3
+        name: project-level3
