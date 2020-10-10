@@ -16,7 +16,7 @@ spec:
     default: /workspace/project-level3/user/Dockerfile
   - name: CONTEXT
     description: The build context used by Kaniko.
-    default: /workspace//project-level3/user
+    default: /workspace/project-level3/user
   - name: EXTRA_ARGS
     default: ""
   - name: BUILDER_IMAGE

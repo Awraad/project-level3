@@ -6,7 +6,7 @@ metadata:
 spec:
   resources:
     inputs:
-    - name: e2e-tests
+    - name: project-level3
       type: git
   params:
   - name: IMAGE
@@ -16,7 +16,7 @@ spec:
     default: /workspace/project-level3/e2e-tests/Dockerfile
   - name: CONTEXT
     description: The build context used by Kaniko.
-    default: /workspace//project-level3/e2e-tests
+    default: /workspace/project-level3/e2e-tests
   - name: EXTRA_ARGS
     default: ""
   - name: BUILDER_IMAGE
