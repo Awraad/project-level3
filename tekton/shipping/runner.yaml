@@ -1,0 +1,18 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: shipping-runner
+  namespace: test
+spec:
+  serviceAccountName: shipping-docker
+  taskRef:
+    name: shipping
+  params:
+  - name: IMAGE
+    value: "awraad/shipping"
+  resources:
+    inputs:
+    - name: project-level3
+      resourceRef:
+        name: project-level3
+
