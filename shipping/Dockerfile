@@ -1,7 +1,13 @@
+FROM maven as build
+
+copy . /shipping
+WORKDIR /shipping
+RUN mvn -DskipTests package
+
+
 FROM weaveworksdemos/msd-java:jre-latest
 
-WORKDIR /usr/src/app
-COPY *.jar ./app.jar
+COPY --from=build /shipping/target/*.jar ./app.jar
 
 RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
 
@@ -22,3 +28,4 @@ LABEL org.label-schema.vendor="Weaveworks" \
   org.label-schema.schema-version="1.0"
 
 ENTRYPOINT ["/usr/local/bin/java.sh","-jar","./app.jar", "--port=80"]
+
