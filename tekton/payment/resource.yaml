@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
-  name: payment
+  name: project-level3
   namespace: test
 spec:
   type: git
