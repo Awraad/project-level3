@@ -1,7 +1,11 @@
+FROM maven as build
+copy . /orders
+WORKDIR /orders
+RUN mvn -DskipTests package
+
 FROM weaveworksdemos/msd-java:jre-latest
 
-WORKDIR /usr/src/app
-COPY *.jar ./app.jar
+COPY --from=build /orders/target/*.jar ./app.jar
 
 RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
 
