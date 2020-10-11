@@ -1,17 +1,18 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: payment-runner
+  name: front-end-runner
   namespace: test
 spec:
-  serviceAccountName: payment-docker
+  serviceAccountName: front-end-docker
   taskRef:
-    name: payment
+    name: font-end
   params:
   - name: IMAGE
-    value: "awraad/payment"
+    value: "awraad/front-end"
   resources:
     inputs:
     - name: project-level3
       resourceRef:
         name: project-level3
+

@@ -1,17 +1,18 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: payment-runner
+  name: catalogue-runner
   namespace: test
 spec:
-  serviceAccountName: payment-docker
+  serviceAccountName: catalogue-docker
   taskRef:
-    name: payment
+    name: catalogue
   params:
   - name: IMAGE
-    value: "awraad/payment"
+    value: "awraad/catalogue"
   resources:
     inputs:
     - name: project-level3
       resourceRef:
         name: project-level3
+

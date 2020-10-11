@@ -1,17 +1,18 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: payment-runner
+  name: edge-router-runner
   namespace: test
 spec:
-  serviceAccountName: payment-docker
+  serviceAccountName: edge-router-docker
   taskRef:
-    name: payment
+    name: edge-router
   params:
   - name: IMAGE
-    value: "awraad/payment"
+    value: "awraad/edge-router"
   resources:
     inputs:
     - name: project-level3
       resourceRef:
         name: project-level3
+
