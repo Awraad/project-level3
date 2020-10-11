@@ -6,7 +6,7 @@ metadata:
 spec:
   serviceAccountName: front-end-docker
   taskRef:
-    name: font-end
+    name: front-end
   params:
   - name: IMAGE
     value: "awraad/front-end"
