@@ -1,12 +1,12 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: dockr-runner
+  name: payment-runner
   namespace: test
 spec:
   serviceAccountName: awraad-docker
   taskRef:
-    name: dockr
+    name: payment
   params:
   - name: IMAGE
     value: "awraad/payment"

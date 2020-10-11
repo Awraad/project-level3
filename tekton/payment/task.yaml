@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: dockr
+  name: payment
   namespace: test
 spec:
   resources:
