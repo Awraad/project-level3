@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: load-test-runner
+  namespace: test
+spec:
+  serviceAccountName: load-test-docker
+  taskRef:
+    name: load-test
+  params:
+  - name: IMAGE
+    value: "awraad/load-test"
+  resources:
+    inputs:
+    - name: project-level3
+      resourceRef:
+        name: project-level3

@@ -1,7 +1,11 @@
+FROM maven as build
+COPY . /
+RUN mvn clean package
+
 FROM weaveworksdemos/msd-java:jre-latest
 
 WORKDIR /usr/src/app
-COPY *.jar ./app.jar
+COPY --from=build /target/*.jar ./app.jar
 
 RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
 

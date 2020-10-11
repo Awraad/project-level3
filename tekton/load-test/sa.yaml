@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: load-test-docker
+  namespace: test
+secrets:
+  - name: awraad-docker
