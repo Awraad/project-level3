@@ -1,8 +1,7 @@
 FROM maven as build
 COPY . /carts
 WORKDIR /carts
-RUN mvn clean package
-
+RUN mvn -DskipTests package
 FROM weaveworksdemos/msd-java:jre-latest
 
 WORKDIR /usr/src/app
