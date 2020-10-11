@@ -1,0 +1,18 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: carts-runner
+  namespace: test
+spec:
+  serviceAccountName: carts-docker
+  taskRef:
+    name: carts
+  params:
+  - name: IMAGE
+    value: "awraad/carts"
+  resources:
+    inputs:
+    - name: project-level3
+      resourceRef:
+        name: project-level3
+
