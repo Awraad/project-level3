@@ -12,7 +12,7 @@ spec:
     value: "awraad/catalogue"
   resources:
     inputs:
-    - name: project-level3
+    - name: catalogue-resource
       resourceRef:
         name: project-level3
 

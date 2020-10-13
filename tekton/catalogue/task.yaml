@@ -6,14 +6,14 @@ metadata:
 spec:
   resources:
     inputs:
-    - name: project-level3
+    - name: catalogue-resource
       type: git
   params:
   - name: IMAGE
     description: Name (reference) of the image to build.
   - name: DOCKERFILE
     description: Path to the Dockerfile to build.
-    default: /workspace/project-level3/catalogue/docker/catalogue/Dockerfile
+    default: /workspace/project-level3/catalogue/Dockerfile
   - name: CONTEXT
     description: The build context used by Kaniko.
     default: /workspace/project-level3/catalogue
