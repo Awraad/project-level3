@@ -12,7 +12,7 @@ spec:
     value: "awraad/front-end"
   resources:
     inputs:
-    - name: front-end-resource
+    - name: project-level3
       resourceRef:
-        name: front-end-resource
+        name: project-level3
 
