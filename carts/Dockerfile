@@ -1,12 +1,11 @@
-FROM maven as build
-COPY . /carts
-WORKDIR /carts
-RUN mvn -DskipTests package
+FROM maven:3-jdk-11 as build
+WORKDIR /tmp
+copy src /tmp/src
+copy pom.xml /tmp/
+run --mount=type=cache,id=maven,target=/root/.m2,sharing=shared mvn clean package
+
 FROM weaveworksdemos/msd-java:jre-latest
-
-WORKDIR /usr/src/app
-COPY --from=build /carts/target/*.jar ./app.jar
-
+COPY --from=build /tmp/target/carts.jar /carts.jar
 RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
 
 USER ${SERVICE_USER}
@@ -15,7 +14,7 @@ ARG BUILD_DATE
 ARG BUILD_VERSION
 ARG COMMIT
 
-LABEL org.label-schema.vendor="Weaveworks" \
+LABEL org.label-schema.vendor="awraad" \
   org.label-schema.build-date="${BUILD_DATE}" \
   org.label-schema.version="${BUILD_VERSION}" \
   org.label-schema.name="Socks Shop: Cart" \
@@ -25,4 +24,4 @@ LABEL org.label-schema.vendor="Weaveworks" \
   org.label-schema.vcs-ref="${COMMIT}" \
   org.label-schema.schema-version="1.0"
 
-ENTRYPOINT ["/usr/local/bin/java.sh","-jar","./app.jar", "--port=80"]
+ENTRYPOINT ["/usr/local/bin/java.sh","-jar","./carts.jar", "--port=80"]

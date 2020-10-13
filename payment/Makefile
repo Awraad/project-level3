@@ -3,6 +3,9 @@ INSTANCE = payment
 
 .PHONY: default copy test
 
+build:
+	docker build --tag payment .
+
 default: test
 
 copy:
