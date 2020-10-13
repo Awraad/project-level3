@@ -6,7 +6,7 @@ metadata:
 spec:
   resources:
     inputs:
-    - name: project-level3
+    - name: front-end-resource
       type: git
   params:
   - name: IMAGE
