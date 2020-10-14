@@ -1,9 +1,9 @@
-NAME = weaveworksdemos/user
-DBNAME = weaveworksdemos/user-db
+NAME = awraad/user
+DBNAME = awraad/user-db
 INSTANCE = user
-TESTDB = weaveworkstestuserdb
+TESTDB = awraad-db
 OPENAPI = $(INSTANCE)-testopenapi
-GROUP = weaveworksdemos
+GROUP = awraaddemos
 
 TAG=$(TRAVIS_COMMIT)
 

@@ -9,10 +9,10 @@ spec:
     name: user
   params:
   - name: IMAGE
-    value: "awraad/users"
+    value: "awraad/user"
   resources:
     inputs:
     - name: project-level3
       resourceRef:
-        name: project-level3
+        name: user-src
 
