@@ -1,0 +1,18 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: queue-master-runner
+  namespace: test
+spec:
+  serviceAccountName: queue-master-docker
+  taskRef:
+    name: queue-master
+  params:
+  - name: IMAGE
+    value: "awraad/queue-master"
+  resources:
+    inputs:
+    - name: project-level3
+      resourceRef:
+        name: queue-master-src
+
