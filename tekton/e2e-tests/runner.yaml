@@ -14,4 +14,4 @@ spec:
     inputs:
     - name: project-level3
       resourceRef:
-        name: project-level3
+        name: e2e-tests-src
