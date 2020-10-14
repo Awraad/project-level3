@@ -4,7 +4,7 @@ metadata:
   name: e2e-tests-runner
   namespace: test
 spec:
-  serviceAccountName: awraad-docker
+  serviceAccountName: e2e-tests-docker
   taskRef:
     name: e2e-tests
   params:
