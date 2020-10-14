@@ -12,6 +12,6 @@ spec:
     value: "awraad/payment"
   resources:
     inputs:
-    - name: project-level3
+    - name: git-source
       resourceRef:
-        name: project-level3
+        name: git-source

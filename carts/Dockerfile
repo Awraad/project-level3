@@ -1,12 +1,16 @@
+# syntax=docker/dockerfile:experimental
 FROM maven:3-jdk-11 as build
 WORKDIR /tmp
 copy src /tmp/src
 copy pom.xml /tmp/
-run --mount=type=cache,id=maven,target=/root/.m2,sharing=shared mvn clean package
 
-FROM weaveworksdemos/msd-java:jre-latest
-COPY --from=build /tmp/target/carts.jar /carts.jar
-RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
+RUN --mount=type=cache,id=maven,target=/root/.m2,sharing=shared mvn clean package -U
+
+from adoptopenjdk/openjdk11:alpine
+
+copy --from=build "/tmp/target/*.jar" /carts.jar
+
+RUN chmod a+rx ./carts.jar
 
 USER ${SERVICE_USER}
 
@@ -24,4 +28,4 @@ LABEL org.label-schema.vendor="awraad" \
   org.label-schema.vcs-ref="${COMMIT}" \
   org.label-schema.schema-version="1.0"
 
-ENTRYPOINT ["/usr/local/bin/java.sh","-jar","./carts.jar", "--port=80"]
+ENTRYPOINT ["/opt/java/openjdk/bin/java","-jar","./carts.jar", "--port=80"]
