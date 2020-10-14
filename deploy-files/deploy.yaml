@@ -1,0 +1,23 @@
+piVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-end
+  namespace: test
+  labels:
+    app: front-end
+    type: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front-end
+  template:
+    metadata:
+      labels:
+        app: front-end
+    spec:
+      containers:
+      - name: front-end
+        image: awraad/front-end
+        ports:
+        - containerPort: 80
