@@ -11,7 +11,7 @@ spec:
   template:
     metadata:
       labels:
-        app: orders-svc
+        app: orders
     spec:
       containers:
       - name: orders
