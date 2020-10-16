@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orders
+  namespace: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orders-svc
+  template:
+    metadata:
+      labels:
+        app: orders-svc
+    spec:
+      containers:
+      - name: orders
+        image: awraad/orders
+        ports:
+        - containerPort: 80
