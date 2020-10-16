@@ -3,21 +3,18 @@ kind: Deployment
 metadata:
   name: front-end
   namespace: test
-  labels:
-    app: front-end
-    type: api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: front-end
+      app: front-end-svc
   template:
     metadata:
       labels:
-        app: front-end
+        app: front-end-svc
     spec:
       containers:
       - name: front-end
         image: awraad/front-end
         ports:
-        - containerPort: 80
+        - containerPort: 8079

@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: front-end
+  name: front-end-ingress
   namespace: test
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
@@ -9,7 +9,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: /front-end
+      - path: /
         backend:
           serviceName: front-end
-          servicePort: 80
+          servicePort: 8079
