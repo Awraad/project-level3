@@ -7,7 +7,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: orders-svc
+      app: orders
   template:
     metadata:
       labels:

@@ -7,11 +7,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: front-end-svc
+      app: front-end
   template:
     metadata:
       labels:
-        app: front-end-svc
+        app: front-end
     spec:
       containers:
       - name: front-end
