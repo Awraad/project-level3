@@ -7,6 +7,7 @@ metadata:
     name: catalogue
   namespace: test
 spec:
+  type: NodePort
   ports:
     # the port that this service should serve on
   - port: 80
