@@ -1,10 +1,10 @@
-FROM maven:3-jdk-8 as build
+FROM maven:3-jdk-11 as build
 WORKDIR /tmp
 copy src /tmp/src
 copy pom.xml /tmp/
 run mvn clean package
 
-FROM java:openjdk-8-alpine
+FROM java:openjdk-11-alpine
 COPY --from=build /tmp/target/queue-master.jar /queue-master.jar
 
 ENV	SERVICE_USER=myuser \

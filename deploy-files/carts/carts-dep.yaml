@@ -2,23 +2,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: orders
+  name: carts
   labels:
-    name: orders
+    name: carts
   namespace: test
 spec:
   selector:
     matchLabels:
-      name: orders
+      name: carts
   replicas: 1
   template:
     metadata:
       labels:
-        name: orders
+        name: carts
     spec:
       containers:
-      - name: orders
-        image: awraad/orders
+      - name: carts
+        image: awraad/carts
         env:
          - name: ZIPKIN
            value: zipkin.jaeger.svc.cluster.local
@@ -26,12 +26,22 @@ spec:
            value: -Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
         resources:
           limits:
-            cpu: 500m
+            cpu: 300m
             memory: 500Mi
           requests:
-            cpu: 200m
+            cpu: 300m
             memory: 500Mi
         ports:
+        - containerPort: 80
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 10001
+          capabilities:
+            drop:
+              - all
+            add:
+              - NET_BIND_SERVICE
+          readOnlyRootFilesystem: true
         volumeMounts:
         - mountPath: /tmp
           name: tmp-volume

@@ -2,14 +2,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: orders-db
+  name: catalogue-db
   labels:
-    name: orders-db
+    name: catalogue-db
   namespace: test
 spec:
   ports:
     # the port that this service should serve on
-  - port: 27017
-    targetPort: 27017
+  - port: 3306
+    targetPort: 3306
   selector:
-    name: orders-db
+    name: catalogue-db
