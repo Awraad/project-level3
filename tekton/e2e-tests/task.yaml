@@ -2,7 +2,6 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: e2e-tests
-  namespace: test
 spec:
   resources:
     inputs:

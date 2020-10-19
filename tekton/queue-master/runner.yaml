@@ -2,7 +2,6 @@ apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
   name: queue-master-runner
-  namespace: test
 spec:
   serviceAccountName: awraad-docker
   taskRef:

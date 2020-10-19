@@ -2,7 +2,6 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: catalogue-db
-  namespace: test
 spec:
   resources:
     inputs:

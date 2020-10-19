@@ -2,7 +2,6 @@ apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
   name: catalogue-src
-  namespace: test
 spec:
   type: git
   params:

@@ -2,7 +2,6 @@ apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
   name: user-db-runner
-  namespace: test
 spec:
   serviceAccountName: awraad-docker
   taskRef:
@@ -14,5 +13,5 @@ spec:
     inputs:
     - name: project-level3
       resourceRef:
-        name: user-src
+        name: user-db-src
 
