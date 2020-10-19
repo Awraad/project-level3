@@ -4,7 +4,7 @@ metadata:
   name: catalogue-runner
   namespace: test
 spec:
-  serviceAccountName: catalogue-docker
+  serviceAccountName: awraad-docker
   taskRef:
     name: catalogue
   params:

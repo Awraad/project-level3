@@ -2,33 +2,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: catalogue
+  name: payment
   labels:
-    name: catalogue
+    name: payment
 spec:
   selector:
     matchLabels:
-      name: catalogue
+      name: payment
   replicas: 1
   template:
     metadata:
       labels:
-        name: catalogue
+        name: payment
     spec:
       containers:
-      - name: catalogue
-        image: awraad/catalogue
-        command: ["/app"]
-        args:
-        - -port=80
+      - name: payment
+        image: awraad/payment
         resources:
           limits:
             cpu: 100m
             memory: 100Mi
           requests:
-            cpu: 100m
+            cpu: 99m
             memory: 100Mi
         ports:
+        - containerPort: 80
         livenessProbe:
           httpGet:
             path: /health

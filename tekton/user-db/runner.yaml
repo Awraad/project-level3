@@ -1,17 +1,18 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: e2e-tests-runner
+  name: user-db-runner
   namespace: test
 spec:
   serviceAccountName: awraad-docker
   taskRef:
-    name: e2e-tests
+    name: user-db
   params:
   - name: IMAGE
-    value: "awraad/e2e-tests"
+    value: "awraad/user-db"
   resources:
     inputs:
     - name: project-level3
       resourceRef:
-        name: e2e-tests-src
+        name: user-src
+

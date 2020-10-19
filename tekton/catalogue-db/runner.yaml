@@ -1,18 +1,18 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: edge-router-runner
+  name: catalogue-db-runner
   namespace: test
 spec:
-  serviceAccountName: edge-router-docker
+  serviceAccountName: awraad-docker
   taskRef:
-    name: edge-router
+    name: catalogue-db
   params:
   - name: IMAGE
-    value: "awraad/edge-router"
+    value: "awraad/catalogue-db"
   resources:
     inputs:
     - name: project-level3
       resourceRef:
-        name: edge-router-src
+        name: catalogue-db-src
 

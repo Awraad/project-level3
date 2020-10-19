@@ -4,7 +4,7 @@ metadata:
   name: shipping-runner
   namespace: test
 spec:
-  serviceAccountName: shipping-docker
+  serviceAccountName: awraad-docker
   taskRef:
     name: shipping
   params:

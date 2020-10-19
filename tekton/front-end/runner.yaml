@@ -4,7 +4,7 @@ metadata:
   name: front-end-runner
   namespace: test
 spec:
-  serviceAccountName: front-end-docker
+  serviceAccountName: awraad-docker
   taskRef:
     name: front-end
   params:

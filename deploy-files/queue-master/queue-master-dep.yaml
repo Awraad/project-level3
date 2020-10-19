@@ -2,33 +2,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: catalogue
+  name: queue-master
   labels:
-    name: catalogue
+    name: queue-master
 spec:
   selector:
     matchLabels:
-      name: catalogue
+      name: queue-master
   replicas: 1
   template:
     metadata:
       labels:
-        name: catalogue
+        name: queue-master
     spec:
       containers:
-      - name: catalogue
-        image: awraad/catalogue
-        command: ["/app"]
-        args:
-        - -port=80
+      - name: queue-master
+        image: awraad/queue-master
+        env:
+         - name: ZIPKIN
+           value: zipkin.jaeger.svc.cluster.local
+         - name: JAVA_OPTS
+           value: -Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
         resources:
           limits:
-            cpu: 100m
-            memory: 100Mi
+            cpu: 300m
+            memory: 500Mi
           requests:
-            cpu: 100m
-            memory: 100Mi
+            cpu: 300m
+            memory: 500Mi
         ports:
+        - containerPort: 80
         livenessProbe:
           httpGet:
             path: /health

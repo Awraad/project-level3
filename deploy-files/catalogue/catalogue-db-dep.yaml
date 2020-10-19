@@ -5,7 +5,6 @@ metadata:
   name: catalogue-db
   labels:
     name: catalogue-db
-  namespace: test
 spec:
   selector:
     matchLabels:

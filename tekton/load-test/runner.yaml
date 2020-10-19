@@ -4,7 +4,7 @@ metadata:
   name: load-test-runner
   namespace: test
 spec:
-  serviceAccountName: load-test-docker
+  serviceAccountName: awraad-docker
   taskRef:
     name: load-test
   params:

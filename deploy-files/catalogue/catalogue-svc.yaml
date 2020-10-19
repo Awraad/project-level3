@@ -5,7 +5,6 @@ metadata:
   name: catalogue
   labels:
     name: catalogue
-  namespace: test
 spec:
   type: NodePort
   ports:

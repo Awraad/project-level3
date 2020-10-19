@@ -2,22 +2,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: orders-db
+  name: user-db
   labels:
-    name: orders-db
+    name: user-db
 spec:
   selector:
     matchLabels:
-      name: orders-db
+      name: user-db
   replicas: 1
   template:
     metadata:
       labels:
-        name: orders-db
+        name: user-db
     spec:
       containers:
-      - name: orders-db
-        image: mongo
+      - name: user-db
+        image: awraad/user-db
+
         ports:
         - name: mongo
           containerPort: 27017

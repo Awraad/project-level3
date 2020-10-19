@@ -2,14 +2,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: carts
+  name: user-db
   labels:
-    name: carts
+    name: user-db
 spec:
-  type: NodePort
   ports:
     # the port that this service should serve on
-  - port: 80
-    targetPort: 80
+  - port: 27017
+    targetPort: 27017
   selector:
-    name: carts
+    name: user-db
+

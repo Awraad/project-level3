@@ -4,7 +4,7 @@ metadata:
   name: queue-master-runner
   namespace: test
 spec:
-  serviceAccountName: queue-master-docker
+  serviceAccountName: awraad-docker
   taskRef:
     name: queue-master
   params:
