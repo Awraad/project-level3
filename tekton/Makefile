@@ -1,5 +1,5 @@
 
-secret:
+init:
 	kubectl create -f secret.yaml
 	kubectl create -f sa.yaml
 payment-build:
