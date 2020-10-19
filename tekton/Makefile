@@ -10,7 +10,7 @@ user-build:
 	kubectl create -f ./user/resource.yaml
 	kubectl create -f ./user/task.yaml
 	kubectl create -f ./user/runner.yaml
-user-build:
+user-db-build:
 	kubectl create -f ./user-db/resource.yaml
 	kubectl create -f ./user-db/task.yaml
 	kubectl create -f ./user-db/runner.yaml
