@@ -30,7 +30,6 @@ spec:
         env:
         - name: mongo
           value: user-db:27017
-          readOnlyRootFilesystem: true
         livenessProbe:
           httpGet:
             path: /health
