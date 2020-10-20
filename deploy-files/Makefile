@@ -1,4 +1,34 @@
-all: front-end-build catalogue-build user-build payment-build carts-build loadtest-build orders-build queue-master-build shipping-build
+up: front-end-build catalogue-build user-build payment-build carts-build loadtest-build orders-build queue-master-build shipping-build
+down:
+	kubectl delete -f ./front-end/front-end-dep.yaml
+	kubectl delete -f ./front-end/front-end-svc.yaml
+	kubectl delete -f ./front-end/ingress.yaml
+	kubectl delete -f ./payment/payment-dep.yaml
+	kubectl delete -f ./payment/payment-svc.yaml
+	kubectl delete -f ./user/user-db-dep.yaml
+	kubectl delete -f ./user/user-db-svc.yaml
+	kubectl delete -f ./user/user-dep.yaml
+	kubectl delete -f ./user/user-svc.yaml
+	kubectl delete -f ./catalogue/catalogue-db-dep.yaml
+	kubectl delete -f ./catalogue/catalogue-db-svc.yaml
+	kubectl delete -f ./catalogue/catalogue-dep.yaml
+	kubectl delete -f ./catalogue/catalogue-svc.yaml
+	kubectl delete -f ./carts/carts-db-dep.yaml
+	kubectl delete -f ./carts/carts-db-svc.yaml
+	kubectl delete -f ./carts/carts-dep.yaml
+	kubectl delete -f ./carts/carts-svc.yml
+	kubectl delete -f ./loadtest/loadtest-dep.yaml
+	kubectl delete -f ./orders/orders-db-dep.yaml
+	kubectl delete -f ./orders/orders-db-svc.yaml
+	kubectl delete -f ./orders/orders-dep.yaml
+	kubectl delete -f ./orders/orders-svc.yaml
+	kubectl delete -f ./queue-master/rabbitmq-dep.yaml
+	kubectl delete -f ./queue-master/rabbitmq-svc.yaml
+	kubectl delete -f ./queue-master/queue-master-dep.yaml
+	kubectl delete -f ./queue-master/queue-master-svc.yaml
+	kubectl delete -f ./shipping/shipping-dep.yaml
+	kubectl delete -f ./shipping/shipping-svc.yaml
+
 payment-build:
 	kubectl apply -f ./payment/payment-dep.yaml
 	kubectl apply -f ./payment/payment-svc.yaml
@@ -29,10 +59,10 @@ orders-build:
 	kubectl apply -f ./orders/orders-dep.yaml
 	kubectl apply -f ./orders/orders-svc.yaml
 queue-master-build:
-	kubectl apply -f ./queue-master/queue-master-dep.yaml
-	kubectl apply -f ./queue-master/queue-master-svc.yaml
 	kubectl apply -f ./queue-master/rabbitmq-dep.yaml
 	kubectl apply -f ./queue-master/rabbitmq-svc.yaml
+	kubectl apply -f ./queue-master/queue-master-dep.yaml
+	kubectl apply -f ./queue-master/queue-master-svc.yaml
 shipping-build:
 	kubectl apply -f ./shipping/shipping-dep.yaml
 	kubectl apply -f ./shipping/shipping-svc.yaml
