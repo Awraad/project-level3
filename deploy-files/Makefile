@@ -32,5 +32,5 @@ queue-master-build:
 	kubectl apply -f ./queue-master/queue-master-dep.yaml
 	kubectl apply -f ./queue-master/queue-master-svc.yaml
 shipping-build:
-	kubectl apply -f ./shipping/shipping-deb.yaml
+	kubectl apply -f ./shipping/shipping-dep.yaml
 	kubectl apply -f ./shipping/shipping-svc.yaml
