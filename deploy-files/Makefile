@@ -1,4 +1,4 @@
-
+all: front-end-build catalogue-build user-build payment-build carts-build loadtest-build orders-build queue-master-build shipping-build
 payment-build:
 	kubectl apply -f ./payment/payment-dep.yaml
 	kubectl apply -f ./payment/payment-svc.yaml
@@ -21,7 +21,7 @@ carts-build:
 	kubectl apply -f ./carts/carts-db-svc.yaml
 	kubectl apply -f ./carts/carts-dep.yaml
 	kubectl apply -f ./carts/carts-svc.yml
-load-test-build:
+loadtest-build:
 	kubectl apply -f ./loadtest/loadtest-dep.yaml
 orders-build:
 	kubectl apply -f ./orders/orders-db-dep.yaml
