@@ -18,11 +18,9 @@ spec:
       containers:
       - name: user-db
         image: awraad/user-db
-
         ports:
         - name: mongo
           containerPort: 27017
-          readOnlyRootFilesystem: true
         volumeMounts:
         - mountPath: /tmp
           name: tmp-volume
