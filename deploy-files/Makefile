@@ -22,7 +22,7 @@ carts-build:
 	kubectl apply -f ./carts/carts-dep.yaml
 	kubectl apply -f ./carts/carts-svc.yml
 load-test-build:
-	kubectl apply -f ./load-test/loadtest-dep.yaml
+	kubectl apply -f ./loadtest/loadtest-dep.yaml
 orders-build:
 	kubectl apply -f ./orders/orders-db-dep.yaml
 	kubectl apply -f ./orders/orders-db-svc.yaml
