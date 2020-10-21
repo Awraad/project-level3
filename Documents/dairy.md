@@ -35,3 +35,5 @@ day4&5:
 -all service pushed into docker hub successfully
 
 day6:
+-edit user dockerfile and push the image again, in the end user service working
+-by end of the day I managed to deploy all service in the cluster.

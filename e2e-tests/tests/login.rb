@@ -1,3 +1,4 @@
+
 # Test if the user can log into the shop
 base_url = ENV["URL"]
 
