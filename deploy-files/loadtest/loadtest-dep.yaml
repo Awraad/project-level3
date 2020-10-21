@@ -4,7 +4,6 @@ metadata:
   name: load-test
   labels:
     name: load-test
-  namespace: loadtest
 spec:
   selector:
     matchLabels:
