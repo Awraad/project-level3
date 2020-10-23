@@ -1,0 +1,26 @@
+piVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: front-end-pipelinerun 
+spec:
+  pipelineRef:
+    name: front-end-pipeline
+  resources:
+    - name: project-level3
+      resourceRef:
+        name: front-end-resource
+  params:
+    - name: CONTEXT
+      value: "/workspace/project-level3/front-end"
+    - name: DOCKERFILE
+      value: "/workspace/project-level3/front-end/Dockerfile"
+    - name: pathToYamlFile
+      value: "project-level3/deployment/front-end/front-end-dep.yaml"
+    - name: imageUrl
+      value: "awraad/front-end"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "awraad/front-end"
+      
+  serviceAccountName: awraad-docker
