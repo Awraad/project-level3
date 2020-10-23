@@ -30,7 +30,9 @@ catalogue-db-build:
 front-end-build:
 	kubectl create -f ./tekton/front-end/resource.yaml
 	kubectl create -f ./tekton/front-end/task.yaml
-	kubectl create -f ./tekton/front-end/runner.yaml
+	kubectl create -f ./tekton/front-end/task-dep.yaml
+	kubectl create -f ./tekton/front-end/pipeline.yaml
+	kubectl create -f ./tekton/front-end/pipelineRun.yaml
 e2e-tests-build:
 	kubectl create -f ./tekton/e2e-tests/resource.yaml
 	kubectl create -f ./tekton/e2e-tests/task.yaml
@@ -55,4 +57,3 @@ shipping-build:
 	kubectl create -f ./tekton/shipping/resource.yaml
 	kubectl create -f ./tekton/shipping/task.yaml
 	kubectl create -f ./tekton/shipping/runner.yaml
-
