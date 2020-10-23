@@ -16,7 +16,7 @@ spec:
     - name: DOCKERFILE
       value: "/workspace/project-level3/front-end/Dockerfile"
     - name: pathToYamlFile
-      value: "project-level3/deployment/front-end/front-end-dep.yaml"
+      value: "project-level3/deploy-files/front-end/front-end-dep.yaml"
     - name: imageUrl
       value: "awraad/front-end"
     - name: imageTag
