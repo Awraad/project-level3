@@ -2,6 +2,8 @@
 init:
 	kubectl create -f secret.yaml
 	kubectl create -f sa.yaml
+	kubectl create -f role.yaml
+	kubectl create -f RB.yaml
 payment-build:
 	kubectl create -f ./payment/resource.yaml
 	kubectl create -f ./payment/task.yaml
