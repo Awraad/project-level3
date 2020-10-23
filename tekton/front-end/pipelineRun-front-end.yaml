@@ -9,7 +9,7 @@ spec:
   resources:
     - name: project-level3
       resourceRef:
-        name: front-end-resource
+        name: front-end-src
   params:
     - name: CONTEXT
       value: "/workspace/project-level3/front-end"
