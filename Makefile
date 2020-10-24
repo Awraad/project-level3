@@ -2,8 +2,63 @@ init:
 	git clone https://github.com/Awraad/k8s-sandbox.git
 	cd k8s-sandbox && make up
 
-deploy-up: init-build front-end-build catalogue-db-build catalogue-build user-db-build user-build payment-build carts-build load-test-build orders-build queue-master-build shipping-build
-
+up: init init-build front-end-build catalogue-db-build catalogue-build user-db-build user-build payment-build carts-build load-test-build orders-build queue-master-build shipping-build
+down:
+	kubectl delete -f ./tekton/front-end/resource.yaml
+	kubectl delete -f ./tekton/front-end/task.yaml
+	kubectl delete -f ./tekton/front-end/task-dep.yaml
+	kubectl delete -f ./tekton/front-end/pipeline.yaml
+	kubectl delete -f ./tekton/front-end/pipelineRun.yaml
+	kubectl delete -f ./tekton/payment/resource.yaml
+	kubectl delete -f ./tekton/payment/task.yaml
+	kubectl delete -f ./tekton/payment/task-dep.yaml
+	kubectl delete -f ./tekton/payment/pipeline.yaml
+	kubectl delete -f ./tekton/payment/pipelineRun.yaml
+	kubectl delete -f ./tekton/user-db/resource.yaml
+	kubectl delete -f ./tekton/user-db/task.yaml
+	kubectl delete -f ./tekton/user-db/task-dep.yaml
+	kubectl delete -f ./tekton/user-db/pipeline.yaml
+	kubectl delete -f ./tekton/user-db/pipelineRun.yaml
+	kubectl delete -f ./tekton/user/resource.yaml
+	kubectl delete -f ./tekton/user/task.yaml
+	kubectl delete -f ./tekton/user/task-dep.yaml
+	kubectl delete -f ./tekton/user/pipeline.yaml
+	kubectl delete -f ./tekton/user/pipelineRun.yaml
+	kubectl delete -f ./tekton/catalogue-db/resource.yaml
+	kubectl delete -f ./tekton/catalogue-db/task.yaml
+	kubectl delete -f ./tekton/catalogue-db/task-dep.yaml
+	kubectl delete -f ./tekton/catalogue-db/pipeline.yaml
+	kubectl delete -f ./tekton/catalogue-db/pipelineRun.yaml
+	kubectl delete -f ./tekton/catalogue/resource.yaml
+	kubectl delete -f ./tekton/catalogue/task.yaml
+	kubectl delete -f ./tekton/catalogue/task-dep.yaml
+	kubectl delete -f ./tekton/catalogue/pipeline.yaml
+	kubectl delete -f ./tekton/catalogue/pipelineRun.yaml
+	kubectl delete -f ./tekton/carts/resource.yaml
+	kubectl delete -f ./tekton/carts/task.yaml
+	kubectl delete -f ./tekton/carts/task-dep.yaml
+	kubectl delete -f ./tekton/carts/pipeline.yaml
+	kubectl delete -f ./tekton/carts/pipelineRun.yaml
+	kubectl delete -f ./tekton/load-test/resource.yaml
+	kubectl delete -f ./tekton/load-test/task.yaml
+	kubectl delete -f ./tekton/load-test/task-dep.yaml
+	kubectl delete -f ./tekton/load-test/pipeline.yaml
+	kubectl delete -f ./tekton/load-test/pipelineRun.yaml
+	kubectl delete -f ./tekton/orders/resource.yaml
+	kubectl delete -f ./tekton/orders/task.yaml
+	kubectl delete -f ./tekton/orders/task-dep.yaml
+	kubectl delete -f ./tekton/orders/pipeline.yaml
+	kubectl delete -f ./tekton/orders/pipelineRun.yaml
+	kubectl delete -f ./tekton/queue-master/resource.yaml
+	kubectl delete -f ./tekton/queue-master/task.yaml
+	kubectl delete -f ./tekton/queue-master/task-dep.yaml
+	kubectl delete -f ./tekton/queue-master/pipeline.yaml
+	kubectl delete -f ./tekton/queue-master/pipelineRun.yaml
+	kubectl delete -f ./tekton/shipping/resource.yaml
+	kubectl delete -f ./tekton/shipping/task.yaml
+	kubectl delete -f ./tekton/shipping/task-dep.yaml
+	kubectl delete -f ./tekton/shipping/pipeline.yaml
+	kubectl delete -f ./tekton/shipping/pipelineRun.yaml
 init-build:
 	kubectl create -f ./tekton/secret.yaml
 	kubectl create -f ./tekton/sa.yaml
