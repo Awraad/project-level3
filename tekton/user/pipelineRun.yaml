@@ -1,0 +1,27 @@
+
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: user-pipelinerun 
+spec:
+  pipelineRef:
+    name: user-pipeline
+  resources:
+    - name: project-level3
+      resourceRef:
+        name: user-src
+  params:
+    - name: CONTEXT
+      value: "/workspace/project-level3/user"
+    - name: DOCKERFILE
+      value: "/workspace/project-level3/user/Dockerfile"
+    - name: pathToYamlFile
+      value: "project-level3/deploy-files/user/user-dep.yaml"
+    - name: imageUrl
+      value: "awraad/user"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "awraad/user"
+      
+  serviceAccountName: awraad-docker

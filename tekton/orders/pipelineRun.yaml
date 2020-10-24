@@ -1,0 +1,27 @@
+
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: orders-pipelinerun 
+spec:
+  pipelineRef:
+    name: orders-pipeline
+  resources:
+    - name: project-level3
+      resourceRef:
+        name: orders-src
+  params:
+    - name: CONTEXT
+      value: "/workspace/project-level3/orders"
+    - name: DOCKERFILE
+      value: "/workspace/project-level3/orders/Dockerfile"
+    - name: pathToYamlFile
+      value: "project-level3/deploy-files/orders/orders-dep.yaml"
+    - name: imageUrl
+      value: "awraad/orders"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "awraad/orders"
+      
+  serviceAccountName: awraad-docker

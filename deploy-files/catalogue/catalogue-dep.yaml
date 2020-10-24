@@ -1,4 +1,20 @@
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalogue
+  labels:
+    name: catalogue
+spec:
+  type: NodePort
+  ports:
+    # the port that this service should serve on
+  - port: 80
+    targetPort: 80
+  selector:
+    name: catalogue
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:

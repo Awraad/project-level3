@@ -1,0 +1,27 @@
+
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: payment-pipelinerun 
+spec:
+  pipelineRef:
+    name: payment-pipeline
+  resources:
+    - name: project-level3
+      resourceRef:
+        name: payment-src
+  params:
+    - name: CONTEXT
+      value: "/workspace/project-level3/payment"
+    - name: DOCKERFILE
+      value: "/workspace/project-level3/payment/Dockerfile"
+    - name: pathToYamlFile
+      value: "project-level3/deploy-files/payment/payment-dep.yaml"
+    - name: imageUrl
+      value: "awraad/payment"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "awraad/payment"
+      
+  serviceAccountName: awraad-docker

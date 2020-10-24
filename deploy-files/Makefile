@@ -1,68 +1,32 @@
+
 up: front-end-build catalogue-build user-build payment-build carts-build loadtest-build orders-build queue-master-build shipping-build
+
 down:
-	kubectl delete -f ./front-end/front-end-dep.yaml
-	kubectl delete -f ./front-end/front-end-svc.yaml
-	kubectl delete -f ./front-end/ingress.yaml
-	kubectl delete -f ./payment/payment-dep.yaml
-	kubectl delete -f ./payment/payment-svc.yaml
-	kubectl delete -f ./user/user-db-dep.yaml
-	kubectl delete -f ./user/user-db-svc.yaml
-	kubectl delete -f ./user/user-dep.yaml
-	kubectl delete -f ./user/user-svc.yaml
-	kubectl delete -f ./catalogue/catalogue-db-dep.yaml
-	kubectl delete -f ./catalogue/catalogue-db-svc.yaml
-	kubectl delete -f ./catalogue/catalogue-dep.yaml
-	kubectl delete -f ./catalogue/catalogue-svc.yaml
-	kubectl delete -f ./carts/carts-db-dep.yaml
-	kubectl delete -f ./carts/carts-db-svc.yaml
-	kubectl delete -f ./carts/carts-dep.yaml
-	kubectl delete -f ./carts/carts-svc.yml
-	kubectl delete -f ./loadtest/loadtest-dep.yaml
-	kubectl delete -f ./orders/orders-db-dep.yaml
-	kubectl delete -f ./orders/orders-db-svc.yaml
-	kubectl delete -f ./orders/orders-dep.yaml
-	kubectl delete -f ./orders/orders-svc.yaml
-	kubectl delete -f ./queue-master/rabbitmq-dep.yaml
-	kubectl delete -f ./queue-master/rabbitmq-svc.yaml
-	kubectl delete -f ./queue-master/queue-master-dep.yaml
-	kubectl delete -f ./queue-master/queue-master-svc.yaml
-	kubectl delete -f ./shipping/shipping-dep.yaml
-	kubectl delete -f ./shipping/shipping-svc.yaml
+	kubectl delete -f ./deploy-files/front-end/front-end-dep.yaml
+	kubectl delete -f ./deploy-files/payment/payment-dep.yaml
+	kubectl delete -f ./deploy-files/user/user-dep.yaml
+	kubectl delete -f ./deploy-files/catalogue/catalogue-dep.yaml
+	kubectl delete -f ./deploy-files/carts/carts-dep.yaml
+	kubectl delete -f ./deploy-files/loadtest/loadtest-dep.yaml
+	kubectl delete -f ./deploy-files/orders/orders-dep.yaml
+	kubectl delete -f ./deploy-files/queue-master/queue-master-dep.yaml
+	kubectl delete -f ./deploy-files/shipping/shipping-dep.yaml
 
 payment-build:
-	kubectl apply -f ./payment/payment-dep.yaml
-	kubectl apply -f ./payment/payment-svc.yaml
+	kubectl apply -f ./deploy-files/payment/payment-dep.yaml
 user-build:
-	kubectl apply -f ./user/user-db-dep.yaml
-	kubectl apply -f ./user/user-db-svc.yaml
-	kubectl apply -f ./user/user-dep.yaml
-	kubectl apply -f ./user/user-svc.yaml
+	kubectl apply -f ./deploy-files/user/user-dep.yaml
 catalogue-build:
-	kubectl apply -f ./catalogue/catalogue-db-dep.yaml
-	kubectl apply -f ./catalogue/catalogue-db-svc.yaml
-	kubectl apply -f ./catalogue/catalogue-dep.yaml
-	kubectl apply -f ./catalogue/catalogue-svc.yaml
+	kubectl apply -f ./deploy-files/catalogue/catalogue-dep.yaml
 front-end-build:
-	kubectl apply -f ./front-end/front-end-dep.yaml
-	kubectl apply -f ./front-end/front-end-svc.yaml
-	kubectl apply -f ./front-end/ingress.yaml
+	kubectl apply -f ./deploy-files/front-end/front-end-dep.yaml
 carts-build:
-	kubectl apply -f ./carts/carts-db-dep.yaml
-	kubectl apply -f ./carts/carts-db-svc.yaml
-	kubectl apply -f ./carts/carts-dep.yaml
-	kubectl apply -f ./carts/carts-svc.yml
+	kubectl apply -f ./deploy-files/carts/carts-dep.yaml
 loadtest-build:
-	kubectl apply -f ./loadtest/loadtest-dep.yaml
+	kubectl apply -f ./deploy-files/load-test/load-test-dep.yaml
 orders-build:
-	kubectl apply -f ./orders/orders-db-dep.yaml
-	kubectl apply -f ./orders/orders-db-svc.yaml
-	kubectl apply -f ./orders/orders-dep.yaml
-	kubectl apply -f ./orders/orders-svc.yaml
+	kubectl apply -f ./deploy-files/orders/orders-dep.yaml
 queue-master-build:
-	kubectl apply -f ./queue-master/rabbitmq-dep.yaml
-	kubectl apply -f ./queue-master/rabbitmq-svc.yaml
-	kubectl apply -f ./queue-master/queue-master-dep.yaml
-	kubectl apply -f ./queue-master/queue-master-svc.yaml
+	kubectl apply -f ./deploy-files/queue-master/queue-master-dep.yaml
 shipping-build:
-	kubectl apply -f ./shipping/shipping-dep.yaml
-	kubectl apply -f ./shipping/shipping-svc.yaml
+	kubectl apply -f ./deploy-files/shipping/shipping-dep.yaml

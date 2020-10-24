@@ -1,0 +1,27 @@
+
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: catalogue-pipelinerun 
+spec:
+  pipelineRef:
+    name: catalogue-pipeline
+  resources:
+    - name: project-level3
+      resourceRef:
+        name: catalague-src
+  params:
+    - name: CONTEXT
+      value: "/workspace/project-level3/catalogue"
+    - name: DOCKERFILE
+      value: "/workspace/project-level3/catalogue/Dockerfile"
+    - name: pathToYamlFile
+      value: "project-level3/deploy-files/catalogue/catalogue-dep.yaml"
+    - name: imageUrl
+      value: "awraad/catalogue"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "awraad/catalogue"
+      
+  serviceAccountName: awraad-docker

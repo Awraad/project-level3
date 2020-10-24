@@ -1,0 +1,58 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: payment-pipeline
+spec:
+  resources:
+    - name: project-level3
+      type: git
+  params:
+    - name: CONTEXT
+      description: The path to the build context, used by Kaniko - within the workspace
+      type: string
+    - name: IMAGE
+      description: Name (reference) of the image to build.
+      type: string
+    - name: DOCKERFILE
+      description: Path to the Dockerfile to build.
+      type: string
+    - name: pathToYamlFile
+      description: The path to the yaml file to deploy within the git source
+      type: string
+    - name: imageUrl
+      description: Url of image repository
+      type: string
+    - name: imageTag
+      description: Tag to apply to the built image
+      type: string
+  tasks:
+  - name: build-push-image
+    taskRef:
+      name: payment
+    params:
+      - name: CONTEXT
+        value: "$(params.CONTEXT)"
+      - name: IMAGE
+        value: "$(params.IMAGE)"
+      - name: DOCKERFILE
+        value: "$(params.DOCKERFILE)"
+    resources:
+      inputs:
+        - name: project-level3
+          resource: project-level3
+  - name: deploy-socks-shop
+    taskRef:
+      name: payment-deploy
+    runAfter:
+      - build-push-image
+    params:
+      - name: pathToYamlFile
+        value:  "$(params.pathToYamlFile)"
+      - name: imageUrl
+        value: "$(params.imageUrl)"
+      - name: imageTag
+        value: "$(params.imageTag)"
+    resources:
+      inputs:
+        - name: project-level3
+          resource: project-level3

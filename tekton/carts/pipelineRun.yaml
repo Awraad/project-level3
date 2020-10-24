@@ -1,0 +1,27 @@
+
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: carts-pipelinerun 
+spec:
+  pipelineRef:
+    name: carts-pipeline
+  resources:
+    - name: project-level3
+      resourceRef:
+        name: carts-src
+  params:
+    - name: CONTEXT
+      value: "/workspace/project-level3/carts"
+    - name: DOCKERFILE
+      value: "/workspace/project-level3/carts/Dockerfile"
+    - name: pathToYamlFile
+      value: "project-level3/deploy-files/carts/carts-dep.yaml"
+    - name: imageUrl
+      value: "awraad/carts"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "awraad/carts"
+      
+  serviceAccountName: awraad-docker

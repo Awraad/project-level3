@@ -1,0 +1,27 @@
+
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: queue-master-pipelinerun 
+spec:
+  pipelineRef:
+    name: queue-master-pipeline
+  resources:
+    - name: project-level3
+      resourceRef:
+        name: queue-master-src
+  params:
+    - name: CONTEXT
+      value: "/workspace/project-level3/queue-master"
+    - name: DOCKERFILE
+      value: "/workspace/project-level3/queue-master/Dockerfile"
+    - name: pathToYamlFile
+      value: "project-level3/deploy-files/queue-master/queue-master-dep.yaml"
+    - name: imageUrl
+      value: "awraad/queue-master"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "awraad/queue-master"
+      
+  serviceAccountName: awraad-docker
