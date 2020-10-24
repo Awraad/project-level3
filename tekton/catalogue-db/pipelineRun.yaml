@@ -12,7 +12,7 @@ spec:
         name: catalogue-db-src
   params:
     - name: CONTEXT
-      value: "/workspace/project-level3/catalogue-db"
+      value: "/workspace/project-level3/catalogue/docker/catalogue-db"
     - name: DOCKERFILE
       value: "/workspace/project-level3/catalogue/docker/catalogue-db/Dockerfile"
     - name: pathToYamlFile
