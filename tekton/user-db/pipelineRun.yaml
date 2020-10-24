@@ -12,7 +12,7 @@ spec:
         name: user-db-src
   params:
     - name: CONTEXT
-      value: "/workspace/project-level3/user-db"
+      value: "/workspace/project-level3/user/docker/user-db"
     - name: DOCKERFILE
       value: "/workspace/project-level3/user/docker/user-db/Dockerfile"
     - name: pathToYamlFile
