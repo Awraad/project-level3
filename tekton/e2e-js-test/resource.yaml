@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
-  name: e2e-tests-src
+  name: e2e-js-test-src
 spec:
   type: git
   params:

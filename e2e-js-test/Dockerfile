@@ -16,4 +16,6 @@ RUN curl -Ls https://github.com/dustinblackman/phantomized/releases/download/2.1
   cp phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs &&\
   rm -rf /tmp/*
 
-
+WORKDIR /e2e-test
+COPY . /e2e-test
+RUN npm install

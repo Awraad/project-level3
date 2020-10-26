@@ -1,0 +1,20 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: e2e-js-test-pipelinerun 
+spec:
+  pipelineRef:
+    name: e2e-js-test-pipeline
+  resources:
+    - name: project-level3
+      resourceRef:
+        name: e2e-js-test-src
+  params:
+    - name: imageUrl
+      value: "awraad/e2e-js-test"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "awraad/e2e-js-test"
+      
+  serviceAccountName: awraad-docker

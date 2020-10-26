@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 code=0
 testfile=$1
@@ -11,7 +11,7 @@ fi
 
 for test in $files
 do
-  node test/e2e/test_helper.js
+  #node test/e2e/test_helper.js
   casperjs test $test
   ret=$?
   if [ ! $ret == "0" ]; then code=1; fi
