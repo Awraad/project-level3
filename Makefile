@@ -145,3 +145,5 @@ e2e-js-test-build:
 	kubectl create -f ./tekton/e2e-js-test/e2e-task-dep.yaml -n test
 	kubectl create -f ./tekton/e2e-js-test/pipeline.yaml -n test
 	kubectl create -f ./tekton/e2e-js-test/pipelineRun.yaml -n test
+validation:
+		cd tekton && ./validate.sh

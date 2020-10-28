@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  generateName: e2e-js-test-pipelinerun 
+  name: e2e-js-test-pipelinerun 
 spec:
   pipelineRef:
     name: e2e-js-test-pipeline
