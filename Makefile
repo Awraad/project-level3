@@ -5,8 +5,8 @@ docker-build:
 	kubectl create secret generic regcred \
  	--from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
  	--type=kubernetes.io/dockerconfigjson -n test
-up: init init-build front-end-build catalogue-db-build catalogue-build user-db-build user-build payment-build carts-build load-test-build orders-build queue-master-build shipping-build
-down:
+up-build: init init-build front-end-build catalogue-db-build catalogue-build user-db-build user-build payment-build carts-build load-test-build orders-build queue-master-build shipping-build
+down-build:
 	kubectl delete -f ./tekton/front-end/resource.yaml -n test
 	kubectl delete -f ./tekton/front-end/task.yaml -n test
 	kubectl delete -f ./tekton/front-end/task-dep.yaml -n test
@@ -69,7 +69,6 @@ down:
 	kubectl delete -f ./tekton/e2e-js-test/pipeline.yaml -n test
 	kubectl delete -f ./tekton/e2e-js-test/pipelineRun.yaml -n test
 init-build:
-	kubectl create -f ./tekton/secret.yaml -n test
 	kubectl create -f ./tekton/sa.yaml -n test
 	kubectl create -f ./tekton/role.yaml -n test
 	kubectl create -f ./tekton/CRB.yaml -n test
