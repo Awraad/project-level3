@@ -1,0 +1,11 @@
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: CLusterRoleBinding
+metadata:
+  name: role-binding-socks-shop
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: role-socks-shop
+subjects:
+  - kind: ServiceAccount
+    name: awraad-docker
