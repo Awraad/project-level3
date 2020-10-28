@@ -1,7 +1,10 @@
 init:
 	git clone https://github.com/Awraad/k8s-sandbox.git
 	cd k8s-sandbox && make up
-
+docker-build:
+	kubectl create secret generic regcred \
+ 	--from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
+ 	--type=kubernetes.io/dockerconfigjson -n test
 up: init init-build front-end-build catalogue-db-build catalogue-build user-db-build user-build payment-build carts-build load-test-build orders-build queue-master-build shipping-build e2e-js-test-build
 down:
 	kubectl delete -f ./tekton/front-end/resource.yaml -n test
