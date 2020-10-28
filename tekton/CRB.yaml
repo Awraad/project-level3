@@ -1,5 +1,5 @@
 apiVersion: rbac.authorization.k8s.io/v1beta1
-kind: CLusterRoleBinding
+kind: ClusterRoleBinding
 metadata:
   name: role-binding-socks-shop
 roleRef:
