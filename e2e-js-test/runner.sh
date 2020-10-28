@@ -6,7 +6,7 @@ files=$testfile
 
 if [ -z $testfile ]
 then
-  files=$(ls test/e2e/*_test.js)
+  files=$(ls /e2e-js-test/*_test.js)
 fi
 
 for test in $files

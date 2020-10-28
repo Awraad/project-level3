@@ -18,4 +18,4 @@ spec:
     command: ["/bin/sh"]
     args:
       - "-c"
-      - "/e2e-test/runner.sh"
+      - "/e2e-js-test/runner.sh"
