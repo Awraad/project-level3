@@ -63,7 +63,7 @@ init-build:
 	kubectl create -f ./tekton/secret.yaml
 	kubectl create -f ./tekton/sa.yaml
 	kubectl create -f ./tekton/role.yaml
-	kubectl create -f ./tekton/RB.yaml
+	kubectl create -f ./tekton/CRB.yaml
 payment-build:
 	kubectl create -f ./tekton/payment/resource.yaml
 	kubectl create -f ./tekton/payment/task.yaml

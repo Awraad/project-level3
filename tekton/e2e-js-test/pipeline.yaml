@@ -4,7 +4,7 @@ metadata:
   name: e2e-js-test-pipeline
 spec:
   resources:
-    - name: project-level
+    - name: project-level3
       type: git
   params:
     - name: IMAGE
