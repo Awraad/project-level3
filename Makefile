@@ -106,10 +106,6 @@ front-end-build:
 	kubectl create -f ./tekton/front-end/task-dep.yaml -n test
 	kubectl create -f ./tekton/front-end/pipeline.yaml -n test
 	kubectl create -f ./tekton/front-end/pipelineRun.yaml -n test
-e2e-tests-build:
-	kubectl create -f ./tekton/e2e-tests/resource.yaml -n test
-	kubectl create -f ./tekton/e2e-tests/task.yaml -n test
-	kubectl create -f ./tekton/e2e-tests/runner.yaml -n test
 carts-build:
 	kubectl create -f ./tekton/carts/resource.yaml -n test
 	kubectl create -f ./tekton/carts/task.yaml -n test
