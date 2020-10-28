@@ -25,7 +25,7 @@ spec:
       default: "latest"
     - name: pathToYamlFile
       type: string
-      default: "level3-project/deploy-files/dep-all-services.yaml"
+      default: "project-level3/deploy-files/dep-all-services.yaml"
   tasks:
   - name: build-push-image
     taskRef:

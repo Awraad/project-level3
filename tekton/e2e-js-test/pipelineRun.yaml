@@ -17,6 +17,6 @@ spec:
     - name: IMAGE
       value: "awraad/e2e-js-test"
     - name: pathToYamlFile
-      value: "level3-project/deploy-files/dep-all-services.yaml"
+      value: "project-level3/deploy-files/dep-all-services.yaml"
       
   serviceAccountName: awraad-docker
