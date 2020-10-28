@@ -1,3 +1,4 @@
+
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
@@ -22,6 +23,9 @@ spec:
     - name: imageTag
       type: string
       default: "latest"
+    - name: pathToYamlFile
+      type: string
+      default: "level3-project/deploy-files/dep-all-services.yaml"
   tasks:
   - name: build-push-image
     taskRef:
@@ -47,6 +51,19 @@ spec:
         value: "$(params.imageUrl)"
       - name: imageTag
         value: "$(params.imageTag)"
+    resources:
+      inputs:
+        - name: project-level3
+          resource: project-level3
+  - name: deploy-prod
+    taskRef:
+      name: deploy-prod-task
+    runAfter:
+      - build-push-image
+      - run-test
+    params:
+      - name: pathToYamlFile
+        value: "$(params.pathToYamlFile)"
     resources:
       inputs:
         - name: project-level3
