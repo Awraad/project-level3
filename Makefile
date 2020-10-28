@@ -5,7 +5,7 @@ docker-build:
 	kubectl create secret generic regcred \
  	--from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
  	--type=kubernetes.io/dockerconfigjson -n test
-up-build: init init-build front-end-build catalogue-db-build catalogue-build user-db-build user-build payment-build carts-build load-test-build orders-build queue-master-build shipping-build
+up-services:  front-end-build catalogue-db-build catalogue-build user-db-build user-build payment-build carts-build load-test-build orders-build queue-master-build shipping-build
 down-build:
 	kubectl delete -f ./tekton/front-end/resource.yaml -n test
 	kubectl delete -f ./tekton/front-end/task.yaml -n test
