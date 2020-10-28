@@ -4,7 +4,7 @@
   require("./config");
 
   casper.test.begin("User logs in", 3, function suite(test) {
-    casper.start("http://front-end:8080/", function() {
+    casper.start("http://front-end/", function() {
       test.assertNotVisible("#login-modal", "user does not see the login dialogue");
 
       this.clickLabel("Login");
@@ -12,7 +12,7 @@
         test.assertVisible("#login-modal", "user is presented with the login dialogue");
         this.fill("#login-modal form", {
           "username": "Eve_Berger",
-          "password": "duis"
+          "password": "eve"
         }, false);
       }, function() {
         test.fail("login dialogue never showed up");
