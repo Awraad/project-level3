@@ -25,7 +25,7 @@ spec:
   tasks:
   - name: build-push-image
     taskRef:
-      name: build-push-task
+      name: e2e-task-build-push
     params:
       - name: IMAGE
         value: "$(params.IMAGE)"
