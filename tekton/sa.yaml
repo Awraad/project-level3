@@ -3,4 +3,4 @@ kind: ServiceAccount
 metadata:
   name: awraad-docker
 secrets:
-  - name: awraad-docker
+  - name: regcred
