@@ -6,11 +6,12 @@ docker-build:
  	--from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
  	--type=kubernetes.io/dockerconfigjson -n test
 up-services:  init init-build docker-build front-end-build catalogue-db-build catalogue-build user-db-build user-build payment-build carts-build load-test-build orders-build queue-master-build shipping-build
-e2e-js-test-build:
+test:
 	kubectl create -f ./tekton/e2e-js-test/resource.yaml -n test
 	kubectl create -f ./tekton/e2e-js-test/e2e-task-build-push.yaml -n test
 	kubectl create -f ./tekton/e2e-js-test/e2e-task-run.yaml -n test
 	kubectl create -f ./tekton/e2e-js-test/e2e-task-dep.yaml -n test
+	kubectl apply -f ./tekton/e2e-js-test/prod-task-dep.yaml -n test
 	kubectl create -f ./tekton/e2e-js-test/pipeline.yaml -n test
 	kubectl create -f ./tekton/e2e-js-test/pipelineRun.yaml -n test
 down-build:
