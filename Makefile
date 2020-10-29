@@ -5,7 +5,14 @@ docker-build:
 	kubectl create secret generic regcred \
  	--from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
  	--type=kubernetes.io/dockerconfigjson -n test
-up-services:  front-end-build catalogue-db-build catalogue-build user-db-build user-build payment-build carts-build load-test-build orders-build queue-master-build shipping-build
+up-services:  init init-build docker-build front-end-build catalogue-db-build catalogue-build user-db-build user-build payment-build carts-build load-test-build orders-build queue-master-build shipping-build
+e2e-js-test-build:
+	kubectl create -f ./tekton/e2e-js-test/resource.yaml -n test
+	kubectl create -f ./tekton/e2e-js-test/e2e-task-build-push.yaml -n test
+	kubectl create -f ./tekton/e2e-js-test/e2e-task-run.yaml -n test
+	kubectl create -f ./tekton/e2e-js-test/e2e-task-dep.yaml -n test
+	kubectl create -f ./tekton/e2e-js-test/pipeline.yaml -n test
+	kubectl create -f ./tekton/e2e-js-test/pipelineRun.yaml -n test
 down-build:
 	kubectl delete -f ./tekton/front-end/resource.yaml -n test
 	kubectl delete -f ./tekton/front-end/task.yaml -n test
@@ -138,12 +145,6 @@ shipping-build:
 	kubectl create -f ./tekton/shipping/task-dep.yaml -n test
 	kubectl create -f ./tekton/shipping/pipeline.yaml -n test
 	kubectl create -f ./tekton/shipping/pipelineRun.yaml -n test
-e2e-js-test-build:
-	kubectl create -f ./tekton/e2e-js-test/resource.yaml -n test
-	kubectl create -f ./tekton/e2e-js-test/e2e-task-build-push.yaml -n test
-	kubectl create -f ./tekton/e2e-js-test/e2e-task-run.yaml -n test
-	kubectl create -f ./tekton/e2e-js-test/e2e-task-dep.yaml -n test
-	kubectl create -f ./tekton/e2e-js-test/pipeline.yaml -n test
-	kubectl create -f ./tekton/e2e-js-test/pipelineRun.yaml -n test
+
 validation:
 		cd tekton && ./validate.sh
