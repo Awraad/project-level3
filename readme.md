@@ -2,8 +2,6 @@ TO RUN THIS PROJECT:
 -----------------
 -make up-serives // but u should login to docker before that
 
-
-
 -make test
 ------------------
 there  is two files:
