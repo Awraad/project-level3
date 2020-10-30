@@ -1,3 +1,15 @@
+TO RUN THIS PROJECT:
+-make up-serives // but u should login to docker before that
+-make test
+------------------
+there  is two files:
+1-task.md contain trello screenshots
+https://github.com/Awraad/project-level3/blob/master/Documents/tasks.md
+
+2-dairy.md from its label its dairy Xp
+https://github.com/Awraad/project-level3/blob/master/Documents/dairy.md
+
+
 # DevOps Bootcamp Level 3 Final Project
 
 ## Capstone Project
