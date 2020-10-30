@@ -35,5 +35,41 @@ day4&5:
 -all service pushed into docker hub successfully
 
 day6:
+
 -edit user dockerfile and push the image again, in the end user service working
+
 -by end of the day I managed to deploy all service in the cluster.
+
+day7:
+
+-edit yaml files to deploy services.
+
+-faced an error due to version and change it apps/v1 in deployment file in all services.
+
+day8:
+
+-create tekton task to deploy yaml files
+
+-create crb and role
+
+day9:
+
+-editing e2e files due to error in js files
+
+-build the image locally
+
+-create tekton files to test to build and push and deploy
+
+-apply the test
+
+day10:
+
+-create prod task
+
+day11:
+
+-deploy graf and elf
+
+day12:
+
+-edit readme file
