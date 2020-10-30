@@ -5,8 +5,11 @@ docker-build:
 	kubectl create secret generic regcred \
  	--from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
  	--type=kubernetes.io/dockerconfigjson -n test
+graf-elf:
+	cd ./grafana && ./graf.sh
+	cd ./elf && ./elf.sh
 up-services:  init init-build docker-build front-end-build catalogue-db-build catalogue-build user-db-build user-build payment-build carts-build load-test-build orders-build queue-master-build shipping-build
-test:
+test: graf-elf
 	kubectl create -f ./tekton/e2e-js-test/resource.yaml -n test
 	kubectl create -f ./tekton/e2e-js-test/e2e-task-build-push.yaml -n test
 	kubectl create -f ./tekton/e2e-js-test/e2e-task-run.yaml -n test
