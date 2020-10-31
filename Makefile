@@ -82,7 +82,7 @@ down-build:
 init-build:
 	kubectl create -f ./tekton/sa.yaml -n test
 	kubectl create -f ./tekton/role.yaml -n test
-	kubectl create -f ./tekton/CRB.yaml -n test
+	kubectl create -f ./tekton/crb.yaml -n test
 payment-build:
 	kubectl create -f ./tekton/payment/resource.yaml -n test
 	kubectl create -f ./tekton/payment/task.yaml -n test
