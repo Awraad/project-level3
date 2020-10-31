@@ -53,14 +53,7 @@ Day6:
 End of Day6:
 ![end-day6](https://user-images.githubusercontent.com/46459701/97672245-ecee3880-1a46-11eb-93da-8b7b76e531ee.png)
 
-Day7:
 
-End of Day7:
-
-
-Day8:
-
-End of Day8
 
 
 
